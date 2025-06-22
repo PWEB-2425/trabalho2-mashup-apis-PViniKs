@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuscaGame</title>
+    <script src="./script.js" defer></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <button class="logout" onclick="window.location.href = '/logout'">Logout</button>
+    <div class="mid">
+        <div class="busca">
+            <h2>BuscaGame</h2>
+            <input type="text" id="selecao" autocomplete="off">
+            <input type="button" value="Buscar" id="buscar">
+            <div id="autocomplete-list" hidden></div>
+        </div>
+        
+        <div id="resposta" hidden>
+            <h2 id="titulo"></h2>
+            <img id="imagem" src="" alt="Header do Jogo">
+            <p id="texto"></p>
+            <h3>Preços</h3>
+            <div class="valores">
+                <table>
+                    <tr>
+                        <th style="border-top-left-radius: 20px;">Real <img id="flagBR" src="./brasil.png" alt="Bandeira do Brasil"></th>
+                        <th style="border-top-right-radius: 20px;">Euro <img id="flagUE" src="./ue.png" alt="Bandeira da União Européia"></th>
+                    </tr>
+                    <tr>
+                        <td><p class="bold">Valor Atual:</p>
+                            <p id="precoBR"></p></td>
+                        <td><p class="bold">Valor Atual:</p>
+                            <p id="precoEU"></p></td>
+                    </tr>
+                    <tr>
+                        <td style="border-bottom-left-radius: 20px;"><p class="bold">Baixa Histórica:</p>
+                            <p id="precoHistBR"></p></td>
+                        <td style="border-bottom-right-radius: 20px;"><p class="bold">Baixa Histórica:</p>
+                            <p id="precoHistEU"></p></td>
+                    </tr>
+                </table>
+            </div>
+            <button id="pagJogo">Página do Jogo na Steam</button>
+        </div>
+    </div>
+</body>
+</html>

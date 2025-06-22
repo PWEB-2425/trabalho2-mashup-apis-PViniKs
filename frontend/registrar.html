@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/2.0.2/sha.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .register-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #222;
+            padding: 20px 40px;
+            border-radius: 50px;
+            border: 3px solid #fff;
+            box-shadow:
+                0 0 20px rgb(255, 60, 0),
+                0 0 40px rgb(255, 120, 0)
+            ;
+            width: 300px;
+        }
+        h2 {
+            text-align: center;
+            margin: 0;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            margin-top: 15px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        button.submit {
+            width: 50%;
+            padding: 10px;
+            background-color: rgb(255, 100, 0);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button.submit:hover {
+            background-color: rgb(230, 60, 0);
+        }
+        button.toggle {
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-size: 12px;
+            cursor: pointer;
+            margin: 5px auto 10px;
+        }
+        p {
+            margin-top: 15px;
+            margin-bottom: 0;
+        }
+        a {
+            color: rgb(0, 154, 149);
+            text-decoration: none;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h2>Registrar</h2>
+        <form id="registerForm" action="/registrar" method="POST">
+            <label for="username">Nome de Usuário:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button class="toggle" type="button" id="togglePassword">Ver Senha</button>
+            
+            <button class="submit" type="submit" onclick="toHash(this)">Registrar</button>
+        </form>
+        <p>Já tem uma conta? – <a href="/login.html">Entrar</a></p>
+    </div>
+    <script>
+        const passwordInput = document.getElementById('password');
+        const toggleBtn = document.getElementById('togglePassword');
+        let visible = false;
+        toggleBtn.addEventListener('click', function() {
+            visible = !visible;
+            passwordInput.type = visible ? 'text' : 'password';
+            toggleBtn.textContent = visible ? 'Esconder Senha' : 'Ver Senha';
+        });
+
+        function toHash(obj) {
+            var senha = document.getElementById('password');
+            if (senha.value === '') {
+                return false;
+            }
+            var hashObj = new jsSHA("SHA-512", "TEXT", {numRounds: 1});
+            hashObj.update(senha.value);
+            var hash = hashObj.getHash("HEX");
+            senha.value = hash;
+        }
+    </script>
+</body>
+</html>

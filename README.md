@@ -1,73 +1,130 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/psUndoci)
-# Trabalho #2 API MASHUP
+# 🎮 BuscaGame
 
-**Data de Entrega:** 26 de junho de 2025
-
----
-
-## 1. Objetivo
-
-Desenvolver uma aplicação web que:
-
-- Consuma e integre dados de pelo menos 2 APIs externas, com o **servidor** a efetuar todas as requisições (server-side).
-- Inclua um sistema de autenticação de utilizadores baseado em **Express Sessions** ou **Passport-local**.
-- Utilize base de dados **MongoDB** para armazenar informação dos utilizadores (por exemplo histórico de pesquisas)
-
-## 2. Funcionalidades
-
-1. **Autenticação (Server)**
-   - Registo de utilizador (username + password)
-   - Início de sessão com sessões Express ou Passport-local
-   - Proteção de rotas para apenas utilizadores autenticados
-2. **Mashup de APIs**
-   - O utilizador, após login, introduz um termo de pesquisa (e.g., nome de cidade, artista, palavra)
-   - O servidor consome até duas APIs REST externas e retorna dados integrados ao cliente
-   - **Exemplos de APIs**:
-     - **OpenWeatherMap**: clima da cidade (`/weather?q={city}`)
-     - **RestCountries**: informações do país (`/alpha/{code}`)
-     - **Wikipedia REST API**: resumo de artigos (`/page/summary/{title}`)
-     - **Pixabay** ou **Unsplash**: imagens livres de royalties
-     - **NewsAPI** ou **GNews API**: notícias relacionadas
-     - **TMDB API**: informação e posters de filmes
-3. **Persistência em MongoDB**
-   - Guardar credenciais (idealmente hash das passwords)
-   - Histórico de pesquisas por utilizador
-
-## 3. Tecnologias
-
-- **Frontend**: HTML, CSS (ou Tailwind/Bootstrap), JavaScript
-- **Backend**: Node.js (v12+), Express
-  - Autenticação: **express-session** ou **passport-local**
-  - Chamadas a APIs feitas no servidor com ftech API (alternativamente com **Axios**, ou **node-fetch** em versoes mais antigas) usando **async/await**
-- **Base de Dados**: MongoDB (Atlas ou local)
-
-## 4. APIs Externas (sugeridas)
-
-- **OpenWeatherMap** (clima e geocoding)
-- **RestCountries** (bandeiras, capitais, moedas)
-- **Wikipedia REST API** (enciclopédia)
-- **Pixabay** / **Unsplash** (imagens)
-- **NewsAPI** / **GNews API** (notícias)
-- **Exchange Rates API** (câmbio de moedas)
-- **DictionaryAPI** (definições, sinónimos)
-- **TMDB API** (filmes, trailers)
-
-> **Nota:** Registem-se nas plataformas e obtenham as chaves necessárias. Todas as requisições a estas APIs devem ser feitas pelo servidor, protegendo as suas credenciais. As API Keys não devem ficar expostas no código.
-
-## 5. Regras & Avaliação
-
-1. **Grupos:** 2 elementos por grupo.
-2. **GitHubClassroom:** Repositório privado com acesso ao utilizador `pedromoreira-estg`.
-3. **Build & Install:** Incluir script para instalar dependências e iniciar a aplicação.
-4. **Documentação (`README.md`):** Incluir:
-   - Identificação dos elementos do grupo
-   - Tecnologias e APIs utilizadas
-   - Instruções de instalação e configuração das chaves e do MongoDB
-   - Comandos para executar localmente
-   - Link de deployment (**render.com** ou equivalente)
-5. **Deployment:** Aplicação operacional online (ex.: render.com).
-6. **Entrega em Moodle:** Cópia do `README.md` e `.zip`e **link** do repositório.
+Projeto web que permite buscar informações de jogos pela API da Steam (loja de jogos eletrônicos) e visualizar preços atuais e históricos em diferentes moedas, como Real Brasileiro e Euro, utilizando dados da API do GGDeals (site de comparação de preços para jogos eletrônicos).
 
 ---
 
-Boa sorte!
+## 👤 Autor
+
+- Paulo Vinícius Kuss — 35093
+
+---
+
+## 🧰 Tecnologias e APIs Utilizadas
+
+### Tecnologias:
+- **Node.js** com **Express**
+- **MongoDB** para autenticação
+- **HTML5, CSS3 e JavaScript**
+
+### APIs:
+- **Steam API** — para obter informações de jogos
+- **GGDeals API** — para preços atuais e históricos dos jogos
+
+---
+
+## 🧾 Pré-requisitos e Instalação
+
+### 1. Clone o repositório:
+```bash
+git clone https://github.com/PWEB-2425/trabalho2-mashup-apis-PViniKs/
+cd trabalho2-mashup-apis-PViniKs
+````
+
+### 2. Instale as dependências:
+
+```bash
+npm install
+```
+
+### 3. Configuração do MongoDB e Variáveis de Ambiente:
+
+Crie um arquivo `.env` na pasta do backend com as seguintes informações:
+
+```env
+# APIs
+GGDEALS_KEY={chave_api_ggdeals}  // Chave da API do GGDeals
+------------------------------------------
+# LINKS
+STEAM_LINK=https://store.steampowered.com/api/appdetails?l=brazilian&appids=  // Link para API da Steam
+GGDEALS_LINK=https://api.gg.deals/v1/prices/by-steam-app-id/?key=  // Link para API do GGDeals
+GGDEALS_BRL=&region=br&ids=  // Continuação do link do GGDeals para obter dados em BRL
+GGDEALS_EUR=&region=eu&ids=  // Continuação do link do GGDeals para obter dados em EUR
+------------------------------------------
+# APP
+PORT=3058  // Porta preferencial para execução do projeto
+SECRET={sua_chave_secreta}  // Chave secreta para a sessão
+------------------------------------------
+# MONGODB
+DB="mongodb+srv://{seu_usuario}:{sua_senha}@{seu_cluster}.mongodb.net/?"
+DATABASE="{seu_banco_de_dados}"
+COLLECTION="{sua_colecao}"
+```
+
+> ⚠️ **Importante:** Nunca suba este arquivo para repositórios públicos.
+
+---
+
+## ▶️ Comandos para Rodar Localmente
+
+```bash
+# Executa o servidor
+npm start
+```
+
+O servidor rodará por padrão em:
+
+```
+http://localhost:3058/  
+```
+
+---
+
+## 🚀 Deploy
+
+O projeto está disponível online via Netlify:
+🔗 [link](link)
+
+---
+
+## ✅ Funcionalidades
+
+* Registro, login e logout com autenticação persistente
+* Busca de jogos
+* Informações detalhadas do jogo (nome, descrição e imagem de cabeçalho)
+* Comparativo de preços (BRL e EUR), incluindo valor atual e baixa histórica
+* Link direto para a página oficial do jogo na Steam
+
+---
+
+## 📁 Estrutura de Pastas
+
+```
+/trabalho2-mashup-apis-PViniKs
+├── backend/
+│   ├── node_modules/ (não incluído)
+│   ├── .env (não incluído)
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── server.js
+├── frontend/
+│   ├── frontend/
+│   │   ├── brasil.png
+│   │   ├── index.html
+│   │   ├── jogos.json
+│   │   ├── script.js
+│   │   ├── style.css
+│   │   ├── ue.png
+│   ├── login.html
+│   ├── registrar.html
+├── .gitignore
+├── server.js
+```
+
+---
+
+## 📝 Observações
+
+* Os dados da lista de jogos são carregados apenas uma vez e armazenados em cache no lado do cliente, visando melhoria de performance.
+
+---

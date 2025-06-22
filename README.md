@@ -6,7 +6,7 @@ Projeto web que permite buscar informações de jogos pela API da Steam (loja de
 
 ## 👤 Autor
 
-- Paulo Vinícius Kuss — 35093
+- Paulo Vinícius Kuss – 35093
 
 ---
 

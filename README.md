@@ -18,8 +18,8 @@ Projeto web que permite buscar informações de jogos pela API da Steam (loja de
 - **HTML5, CSS3 e JavaScript**
 
 ### APIs:
-- **Steam API** — para obter informações de jogos
-- **GGDeals API** — para preços atuais e históricos dos jogos
+- **Steam API** — para obter informações de jogos (https://store.steampowered.com/api/)
+- **GGDeals API** — para preços atuais e históricos dos jogos (https://api.gg.deals/v1/prices/by-steam-app-id/)
 
 ---
 

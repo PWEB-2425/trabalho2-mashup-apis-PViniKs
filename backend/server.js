@@ -35,13 +35,14 @@ async function start() {
 
 app.get('/preco/:id', estaAutenticado, async (req, res) => {
     const id = req.params.id
+    const proxyUrl = "https://corsproxy.io/?";
     const urlBR = process.env.GGDEALS_LINK + process.env.GGDEALS_KEY + process.env.GGDEALS_BRL + id
     const urlEU = process.env.GGDEALS_LINK + process.env.GGDEALS_KEY + process.env.GGDEALS_EUR + id
     
     try {
-        const responseBR = await fetch(urlBR)
+        const responseBR = await fetch(proxyUrl + urlBR)
         const dataBR = await responseBR.json()
-        const responseEU = await fetch(urlEU)
+        const responseEU = await fetch(proxyUrl + urlEU)
         const dataEU = await responseEU.json()
 
         if (dataBR && dataEU) {

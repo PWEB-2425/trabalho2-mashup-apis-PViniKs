@@ -28,7 +28,7 @@ Projeto web que permite buscar informações de jogos pela API da Steam (loja de
 ### 1. Clone o repositório:
 ```bash
 git clone https://github.com/PWEB-2425/trabalho2-mashup-apis-PViniKs/
-cd trabalho2-mashup-apis-PViniKs
+cd trabalho2-mashup-apis-PViniKs/backend
 ````
 
 ### 2. Instale as dependências:

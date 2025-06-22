@@ -82,8 +82,8 @@ http://localhost:3058/
 
 ## 🚀 Deploy
 
-O projeto está disponível online via Netlify:
-🔗 [trab2-pw-apis.onrender.com](https://trab2-pw-apis.onrender.com/)
+O projeto está disponível online via Render:
+- 🔗 [trab2-pw-apis.onrender.com](https://trab2-pw-apis.onrender.com/)
 
 ---
 

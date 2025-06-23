@@ -80,6 +80,17 @@ http://localhost:3058/
 
 ---
 
+### 🗄️ Estrutura da Base de Dados
+
+A base de dados MongoDB contém:
+
+- **Usuários** (`collection: users`)
+  - `_ID`: ObjectID
+  - `username`: String
+  - `password`: String (criptografada com SHA-512)
+
+---
+
 ## 🚀 Deploy
 
 O projeto está disponível online via Render:
@@ -90,9 +101,12 @@ O projeto está disponível online via Render:
 ## ✅ Funcionalidades
 
 * Registro, login e logout com autenticação persistente
-* Busca de jogos
+* A autenticação feita com persistência de sessão via Express-session
+* Credenciais armazenadas no MongoDB com senha criptografada
+* Busca de jogos com API da Steam
 * Informações detalhadas do jogo (nome, descrição e imagem de cabeçalho)
-* Comparativo de preços (BRL e EUR), incluindo valor atual e baixa histórica
+* Comparativo de preços (BRL e EUR) por meio da API do GGDeals
+* Preços incluem o valor atual e a baixa histórica
 * Link direto para a página oficial do jogo na Steam
 
 ---
